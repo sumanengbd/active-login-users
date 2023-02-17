@@ -1,18 +1,8 @@
-=== Active Login Users ===
-Contributors: https://github.com/sumanengbd/active-login-users
-Tags: users, login users, users card, active users
-Requires at least: 5.0
-Tested up to: 6.0
-Stable tag: 1.0.4
-Requires PHP: 7.4
-License: GPL3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
-
-== Description ==
+## Description
 
 The Active Login Users plugin is a powerful tool for displaying all users and currently logged-in users on your website, making it easy for site administrators and visitors to see who's online and active. This plugin can be used in various contexts, such as pages, posts, widgets, or custom templates.
 
-== Features ==
+## Features
 The plugin has several features that make it an exceptional tool for tracking active users:
 
 * Real-time tracking: The plugin monitors user activity and updates the list of active users in real-time, without requiring a page refresh.
@@ -20,14 +10,14 @@ The plugin has several features that make it an exceptional tool for tracking ac
 * User roles filtering: You can choose which user roles to show in the active users list, so you can filter out non-essential or inactive users.
 * Shortcode support: The plugin includes a shortcode that can be used to display the active users list in any post, page, or custom template, making it easy to integrate with your website's design.
 
-== Installation ==
+## Installation
 To install the Active Login Users plugin, follow these steps:
 
-1. Upload the plugin files to the /wp-content/plugins/active-login-users directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/active-login-users` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Configure the plugin settings in the 'Active Login Users' screen under 'Settings'.
 
-== Usage ==
+## Usage
 To display the active users list in your website, use the `[active_users]` shortcode in any post, page, or custom template. The shortcode supports various attributes that allow you to customize the display, such as:
 
 * activeusers: The active users to display in the login active users lists (default: no)
@@ -44,21 +34,24 @@ For example, to show the five most recent logged-in subscribers without avatars,
 
 `[active_login_users activeusers=yes column=3 roles=subscriber number=5 orderby=login_time order=DESC avatar=false name=true time=true]`
 
-== Support ==
+## Support
 If you encounter any issues or have any feature requests, please feel free to [create a new issue on Github](https://github.com/sumanengbd/active-login-users).
 
-== Frequently asked questions ==
-
-= I found a bug. Where should I post it? =
+## Frequently asked questions
+<details>
+<summary>I found a bug. Where should I post it?<summary>
 
 Please use the issues section in the [GitHub-Repository](https://github.com/sumanengbd/active-login-users/issues).
 
 I will most likely not maintain the forum support forum on wordpress.org. Anyway, other users might have an answer for you, so it's worth a shot.
+</details>
 
-= I'd like to suggest a feature. Where should I post it? =
+<details>
+<summary>I'd like to suggest a feature. Where should I post it?<summary>
 
 Please post an issue in the [GitHub-Repository](https://github.com/sumanengbd/active-login-users/issues)
+</details>
 
-== Screenshots ==
+## Screenshots
 1. All Users Card Lists.
 2. Active Login Users Card Lists.
