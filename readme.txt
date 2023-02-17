@@ -30,15 +30,15 @@ To install the Active Login Users plugin, follow these steps:
 == Usage ==
 To display the active users list in your website, use the `[active_users]` shortcode in any post, page, or custom template. The shortcode supports various attributes that allow you to customize the display, such as:
 
-* activeusers: The active users to display in the login active users lists (default: no)
-* column: Column is set how item you show one column (default: 3)
-* roles: The user roles to display in the list (default: all).
-* number: The number of users to show in the list (default: 10).
-* orderby: The field to use for sorting the list (default: login time).
-* order: The sorting order (default: DESC).
-* avatar: Whether to show user avatars (default: true).
-* name: Whether to show user names (default: true).
-* time: Whether to show the login time (default: true).
+* `activeusers`: The active users to display in the login active users lists (default: no)
+* `column`: Column is set how item you show one column (default: 3)
+* `roles`: The user roles to display in the list (default: all).
+* `number`: The number of users to show in the list (default: 10).
+* `orderby`: The field to use for sorting the list (default: login time).
+* `order`: The sorting order (default: DESC).
+* `avatar`: Whether to show user avatars (default: true).
+* `name`: Whether to show user names (default: true).
+* `time`: Whether to show the login time (default: true).
 
 For example, to show the five most recent logged-in subscribers without avatars, use the following shortcode:
 
