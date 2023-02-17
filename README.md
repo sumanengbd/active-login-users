@@ -39,15 +39,17 @@ If you encounter any issues or have any feature requests, please feel free to [c
 
 ## Frequently asked questions
 <details>
-    <summary>I found a bug. Where should I post it?</summary>
-    Please use the issues section in the [GitHub-Repository](https://github.com/sumanengbd/active-login-users/issues).
+<summary>I found a bug. Where should I post it?</summary>
 
-    I will most likely not maintain the forum support forum on wordpress.org. Anyway, other users might have an answer for you, so it's worth a shot.
+Please use the issues section in the [GitHub-Repository](https://github.com/sumanengbd/active-login-users/issues).
+
+I will most likely not maintain the forum support forum on wordpress.org. Anyway, other users might have an answer for you, so it's worth a shot.
 </details>
 
 <details>
-    <summary>I'd like to suggest a feature. Where should I post it?</summary>
-    Please post an issue in the [GitHub-Repository](https://github.com/sumanengbd/active-login-users/issues)
+<summary>I'd like to suggest a feature. Where should I post it?</summary>
+
+Please post an issue in the [GitHub-Repository](https://github.com/sumanengbd/active-login-users/issues)
 </details>
 
 ## Screenshots
