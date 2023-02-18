@@ -28,7 +28,7 @@ To install the Active Login Users plugin, follow these steps:
 3. Configure the plugin settings in the 'Active Login Users' screen under 'Settings'.
 
 == Usage ==
-To display the active users list in your website, use the `[active_users]` shortcode in any post, page, or custom template. The shortcode supports various attributes that allow you to customize the display, such as:
+To display the active users list in your website, use the `[active_login_users]` shortcode in any post, page, or custom template. The shortcode supports various attributes that allow you to customize the display, such as:
 
 * `activeusers`: The active users to display in the login active users lists (default: no)
 * `column`: Column is set how item you show one column (default: 3)

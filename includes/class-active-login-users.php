@@ -79,7 +79,7 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 			$user = wp_get_current_user();
 			$session_tokens = get_user_meta($user->ID, 'session_tokens', true);
 		
-			$session_id = get_current_session_id();
+			$session_id = $this->alu_get_current_session_id();
 			unset($session_tokens[$session_id]);
 		
 			update_user_meta($user->ID, 'session_tokens', $session_tokens);
@@ -88,12 +88,14 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 		public function alu_get_active_login_users( $atts ) {
 			$atts = shortcode_atts( array(
 				'activeusers' => '',
-				'column' => 3
+				'column' => 3,
+				'roles' => '',
+				'number' => -1,
+				'orderby' => 'ID',
+				'order' => 'ASC',
 			), $atts );
 		
 			$args = array(
-				'order' => 'ASC',
-				'orderby' => 'ID',
 				'count_total' => false,
 				'fields' => array( 'ID', 'user_login' )
 			);
@@ -101,6 +103,23 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 			if ( ! empty( $atts['activeusers'] ) && $atts['activeusers'] == "yes" ) {
 				$args['meta_key'] = 'session_tokens';
 				$args['meta_value'] = '';
+			}
+			
+			if ( ! empty( $atts['roles'] ) ) {
+				$roles = explode( ',', $atts['roles'] );
+				$args['role__in'] = $roles;
+			}
+			
+			if ( ! empty( $atts['number'] ) ) {
+				$args['number'] = $atts['number'];
+			}
+			
+			if ( ! empty( $atts['orderby'] ) ) {
+				$args['orderby'] = $atts['orderby'];
+			}
+			
+			if ( ! empty( $atts['order'] ) ) {
+				$args['order'] = $atts['order'];
 			}
 		
 			$users = get_users( $args );
