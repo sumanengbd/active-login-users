@@ -38,11 +38,12 @@ To display the active users list in your website, use the `[active_login_users]`
 * `order`: The sorting order (default: DESC).
 * `avatar`: Whether to show user avatars (default: true).
 * `name`: Whether to show user names (default: true).
+* `role`: Whether to show user roles (default: true).
 * `time`: Whether to show the login time (default: true).
 
 For example, to show the five most recent logged-in subscribers without avatars, use the following shortcode:
 
-`[active_login_users activeusers=yes column=3 roles=subscriber number=5 orderby=login_time order=DESC avatar=false name=true time=true]`
+`[active_login_users activeusers="yes" column="3" roles="administrator, subscriber" number="5" orderby="login_time" order="DESC" avatar="true" name="true" role="true" time="true"]`
 
 == Support ==
 If you encounter any issues or have any feature requests, please feel free to [create a new issue on Github](https://github.com/sumanengbd/active-login-users).

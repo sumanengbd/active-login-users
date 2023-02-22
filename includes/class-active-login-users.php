@@ -27,6 +27,7 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 			add_action( 'user_register', array( $this, 'alu_set_unique_id_meta_key' ), 10, 1 );
 			add_action( 'init', array( $this, 'alu_set_unique_id_meta_key_for_existing_users' ) );
 			add_action( 'wp_logout', array( $this, 'alu_remove_user_from_active_list' ) );
+			add_action( 'wp_login', array( $this, 'alu_set_user_last_login' ), 10, 2 );
 
 			add_shortcode( 'active_login_users', array( $this, 'alu_get_active_login_users' ) );
 		}
@@ -43,6 +44,10 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 			wp_enqueue_style( 'loginusers-style', ACTIVE_LOGIN_USERS_ASSETS . '/css/loginusers.css', array(), ACTIVE_LOGIN_USERS_VERSION, 'all' );
 		}
 		
+		public function alu_set_user_last_login( $user_login, $user ) {
+			update_user_meta( $user->ID, 'last_login', time() );
+		}
+
 		public function alu_set_unique_id_meta_key( $user_id ) {
 			$unique_id = '';
 			do {
@@ -93,6 +98,8 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 				'number' => -1,
 				'orderby' => 'ID',
 				'order' => 'ASC',
+				'role' => 'true',
+				'time' => 'true',
 			), $atts );
 		
 			$args = array(
@@ -106,7 +113,7 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 			}
 			
 			if ( ! empty( $atts['roles'] ) ) {
-				$roles = explode( ',', $atts['roles'] );
+				$roles = explode( ',', strtolower( str_replace( ' ', '', $atts['roles'] ) ) );
 				$args['role__in'] = $roles;
 			}
 			
@@ -146,17 +153,20 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 								/**
 								 * Hook: active_login_users_before_card_loop_item.
 								 *
-								 * @hooked active_login_users_card_user_status - 10
-								 * @hooked active_login_users_card_avater - 20
+								 * @see alu_card_user_last_login()
+								 * @see alu_card_user_status()
+								 * @see alu_card_user_avater()
+								 * @see alu_card_user_role()
 								 */
-								do_action( 'active_login_users_before_card_loop_item', $user );
+								do_action( 'active_login_users_before_card_loop_item', $user, $atts );
 							
 								/**
 								 * Hook: active_login_users_after_card_loop_item.
 								 *
-								 * @hooked active_login_users_card_user_name - 10
+								 * @see alu_card_user_name()
+								 * @see alu_card_user_unique_id()
 								 */
-								do_action( 'active_login_users_after_card_loop_item', $user );
+								do_action( 'active_login_users_after_card_loop_item', $user, $atts );
 							?>
 						</li>
 						<?php endforeach; ?>
@@ -167,7 +177,7 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 						 * Hook: active_login_users_after_card_item.
 						 *
 						 */
-						do_action( 'active_login_users_after_card_item' );
+						do_action( 'active_login_users_after_card_item', $atts );
 					?>
 				</div>
 				<?php
