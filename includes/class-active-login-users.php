@@ -39,7 +39,7 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 			include_once ACTIVE_LOGIN_USERS_INCLUDES . '/active-login-users-hooks.php';
 			include_once ACTIVE_LOGIN_USERS_INCLUDES . '/active-login-functions.php';
 		}
-
+		
 		public function alu_custom_enqueue_styles() {
 			wp_enqueue_style( 'loginusers-style', ACTIVE_LOGIN_USERS_ASSETS . '/css/loginusers.css', array(), ACTIVE_LOGIN_USERS_VERSION, 'all' );
 		}
@@ -98,6 +98,7 @@ if ( ! class_exists( 'ActiveLoginUsers' ) ) {
 				'number' => -1,
 				'orderby' => 'ID',
 				'order' => 'ASC',
+				'avatar' => 'true',
 				'role' => 'true',
 				'time' => 'true',
 			), $atts );

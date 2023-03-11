@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 add_action( 'active_login_users_before_card_loop_item', 'alu_card_user_last_login', 10, 2 );
 add_action( 'active_login_users_before_card_loop_item', 'alu_card_user_status', 20 );
-add_action( 'active_login_users_before_card_loop_item', 'alu_card_user_avater', 30 );
+add_action( 'active_login_users_before_card_loop_item', 'alu_card_user_avater', 30, 2 );
 add_action( 'active_login_users_before_card_loop_item', 'alu_card_user_role', 40, 2 );
 
 /**

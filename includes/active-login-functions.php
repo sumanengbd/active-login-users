@@ -47,13 +47,16 @@ if ( ! function_exists( 'alu_card_user_avater' ) ) {
 	 * Get the user Avater
 	 *
 	 */
-    function alu_card_user_avater( $user ) {
+    function alu_card_user_avater( $user, $atts ) {
         $user_avatar = get_avatar( $user->ID, '160' );
-        ?>
-            <div class="user_media">
-                <?php echo $user_avatar; ?>    
-            </div>
-        <?php
+
+        if ( ! empty( $atts['avatar'] ) && $atts['avatar'] == 'true' ) {
+            ?>
+                <div class="user_media">
+                    <?php echo $user_avatar; ?>    
+                </div>
+            <?php
+        }
     }
 }
 
